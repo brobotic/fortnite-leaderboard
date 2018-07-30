@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% block app_content %}
+<h1 class="display-1">Changelog</h1>
+<ul class="list-unstyled">
+    <ul>
+        <li>v1.7.6 - 5/16/2018</li>
+        <ul>
+            <li>Improved win feed: Only 10 wins are displayed at a time, however now you can page through them to see all the wins (instead of all the wins being displayed on the front page, which makes for a very long and messy front page)</li>>
+        </ul>
+
+    </ul>
+    <ul>
+        <li>v1.7.5 - 5/6/2018</li>
+        <ul>
+            <li>Multiple awards will now display properly for players that have earned multiple awards</li>
+        </ul>
+    </ul>
+    <ul>
+        <li>v1.7.4 - 5/4/2018</li>
+        <ul>
+            <li>Added a new stat to each mode in the Season 4 leaderboards: Most Kills per Game. I couldn't think of a better name for it. It will keep track of your highest kill count in a single game. Unfortunately, the stat is not retroactive as I can only check kill counts from your 10 most recent matches at the time of updating the site (6:30PM on 5/4/2018). However, the stat WILL be checked each match from here on out</li>
+        </ul>
+    </ul>
+    <ul>
+        <li>v1.7.3 - 5/3/2018</li>
+        <ul>
+            <li>Awards now display properly in all leaderboard tables</li>
+        </ul>
+    </ul>
+    <ul>
+        <li>v1.7.2 - 5/2/2018</li>
+        <ul>
+            <li>Season 4 now has a Total leaderboard (adds up all stats for each palyer from Solo, Duo, and Squad modes)</li>
+        </ul>
+    </ul>
+    <ul>
+        <li>v1.7.1 - 5/2/2018</li>
+        <ul>
+            <li>Lifetime stats are back!</li>
+        </ul>
+        <ul>
+            <li>HTTPS has been enabled, so you will see that oh so sweet green lock in the address bar of your browser. Our sacred data is now more secure</li>
+        </ul>
+    </ul>
+    <ul>
+        <li>v1.7 - 5/1/2018</li>
+        <ul>
+            <li>Season 4 has begun and the leaderboard has been set up for Season 4! Please note that you must first play a game in each mode before you start seeing your stats populate in the leaderboards</li>
+        </ul>
+        <ul>
+            <li>Awards are broken on the Season 4 leaderboards. Shut up, I'm working on it.</li>
+        </ul>
+        <ul>
+            <li>Lifetime stats don't update right now. I'm working on it.</li>
+        </ul>
+        <ul>
+            <li>A bunch of other stuff is probably broken. I'm working on it. Please let me know if you see any bugs!</li>
+        </ul>
+    </ul>
+    <ul>
+        <li>v1.6.1 - 4/30/2018</li>
+        <ul>
+            <li>Added a Season 3 Total leaderboard that displays combined totals from all stats across all 3 modes</li>
+        </ul>
+    </ul>
+    <ul>
+        <li>v1.6.0</li>
+        <ul>
+            <li>Added end-of-season awards for season 3</li>
+        </ul>
+    </ul>
+    <ul>
+        <li>v1.5.9</li>
+        <ul>
+            <li>Added Win % to each leaderboard</li>
+        </ul>
+    </ul>
+    <ul>
+        <li>v1.5.8</li>
+        <ul>
+            <li>Added the number of matches played to each leaderboard</li>
+        </ul>
+    </ul>
+    <ul>
+        <li>v1.5.7</li>
+        <ul>
+            <li>Fixed a bug where the award for 10 Solo Wins was not displaying after obtaining an 11th Solo Win</li>
+        </ul>
+    </ul>
+    <ul>
+        <li>v1.5.6</li>
+        <ul>
+            <li>Moved Lifetime stats to its own tab and added new tables for Lifetime Solo/Duo/Squad stats</li>
+        </ul>
+        <ul>
+            <li>Removed a redundant column from the tables (no need for both Kills/Match and K/D ratio, not sure why FortniteTracker tracks both)</li>
+        </ul>
+    </ul>
+    <ul>
+        <li>v1.5.5</li>
+        <ul>
+            <li>Permanent win feed: wins will still be displayed in the feed, instead of being removed after the winning game is no longer present in the list of your 10 most recent matches (Only affects wins after 4/17)</li>
+        </ul>
+    </ul>
+    <ul>
+        <li>v1.5.4</li>
+        <ul>
+            <li>Improved backend: upgraded to a more robust webserver, so hopefully you will experience faster load times</li>
+        </ul>
+    </ul>
+    <ul>
+        <li>v1.5.3</li>
+        <ul>
+            <li>Fixed an issue where Player names weren't linking back to their FortniteTracker page</li>
+        </ul>
+        <ul>
+            <li>Added awards for certain milestones(i.e. X amount of lifetime kills, X amount of seasonal solo wins, etc.). However, not sure I want to reveal what they are. Good luck!</li>
+        </ul>
+    </ul>
+    <ul>
+        <li>v1.5.2</li>
+        <ul>
+            <li>Changed the very bright color scheme to a very poorly done grey color scheme</li>
+        </ul>
+    </ul>
+    <ul>
+        <li>v1.5.1</li>
+        <ul>
+            <li>Added 'Matches Played' to lifetime stats</li>
+        </ul>
+        <ul>
+            <li>Added 'Upcoming Changes' section to the changelog</li>
+        </ul>
+    </ul>
+    <ul>
+        <li>v1.5</li>
+        <ul>
+            <li>Added Lifetime stats</li>
+        </ul>
+    </ul>
+    <ul>
+        <li>v1.4</li>
+        <ul>
+            <li>Win Feed: timestamps now display in PST format</li>
+        </ul>
+    </ul>
+    <ul>
+        <li>v1.3</li>
+        <ul>
+            <li>Added changelog! I have no idea how to properly version releases! I'll change it up whenever I figure out a solid method for that</li>
+        </ul>
+    </ul>
+    <ul>
+        <li>v1.2</li>
+        <ul>
+            <li>Removed player pictures: FortniteTracker profiles no longer displays the player's current skin, so unfortunately we can no longer display these</li>
+        </ul>
+    </ul>
+</ul>
+
+<br />
+<br />
+
+<h1 class="display-1">Upcoming changes</h1>
+<ul class="list-unstyled">
+    <ul>
+        <li>Win streak announcements: announce win streaks(of 2 or more wins in a row) in the Win Feed. Maybe. Totally depends on my programming ability</li>
+    </ul>
+</ul>
+{% endblock %}

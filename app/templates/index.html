@@ -1,0 +1,529 @@
+{% extends "base.html" %}
+{% block app_content %}
+
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item active">
+            <a class="nav-link active" id="pills-season4-tab" data-toggle="pill" href="#pills-season4" role="tab" aria-controls="pills-season4" aria-selected="true">Season 4</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="pills-season3-tab" data-toggle="pill" href="#pills-season3" role="tab" aria-controls="pills-season3" aria-selected="true">Season 3</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="pills-lifetime-tab" data-toggle="pill" href="#pills-lifetime" role="tab" aria-controls="pills-lifetime" aria-selected="true">Lifetime</a>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="pills-tabContent">
+        <br />
+
+        <div class="tab-pane active" id="pills-season4" role="tabpanel" aria-labelledby="pills-season4-tab">
+            <ul class ="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item active" id="s4-solo-tab" data-toggle="tab" href="#s4solo" role="tab" aria-controls="home" aria-selected="true">
+                    <a class="nav-link active" href="#">Solo</a>
+                </li>
+                <li class="nav-item" id="s4-duo-tab" data-toggle="tab" href="#s4duo" role="tab" aria-controls="home" aria-selected="true">
+                    <a class="nav-link" href="#">Duo</a>
+                </li>
+                <li class="nav-item" id="s4-squad-tab" data-toggle="tab" href="#s4squad" role="tab" aria-controls="home" aria-selected="true">
+                    <a class="nav-link" href="#">Squad</a>
+                </li>
+                <li class="nav-item" id="s4-total-tab" data-toggle="tab" href="#s4total" role="tab" aria-controls="home" aria-selected="true">
+                    <a class="nav-link" href="#">Total</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="s4solo" role="tabpanel" aria-labelledby="s4-solo-tab">
+                    <table class="table" id="t09">
+                        <thead>
+                            <tr>
+                                <th>Player</th>
+                                <th>Wins</th>
+                                <th>Kills</th>
+                                <th>Most Kills/Game</th>
+                                <th>K/D</th>
+                                <th>Win %</th>
+                                <th>Matches</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for score in scores_four %}
+                            <tr>
+                                {% if 'jamzzee' == score.player %}
+	                            <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a> <img src="{{url_for('.static', filename='award-ltwins100_24x28.png')}}" title="Award for 100 Lifetime Wins"></td>
+	                            {% elif 'irishleadhead' == score.player %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a> <img src="{{url_for('.static', filename='award-solowins10_24x25.png')}}" title="Award for 10 Season 3 Solo Wins"> <img src="{{url_for('.static', filename='award-ltwins100_24x28.png')}}" title="Award for 100 Lifetime Wins"></td>
+	                            {% else %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a></td>
+                                {% endif %}
+                                <td>{{ score.s4_solo_wins }}</td>
+                                <td>{{ score.s4_solo_kills }}</td>
+                                <td>{{ score.s4_solo_killsmax }}</td>
+                                <td>{{ score.s4_solo_kd }}</td>
+                                <td>{{ score.s4_solo_wr }}</td>
+                                <td>{{ score.s4_solo_matches }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="tab-pane" id="s4duo" role="tabpanel" aria-labelledby="s4-duo-tab">
+                    <table class="table" id="t10">
+                        <thead>
+                            <tr>
+                                <th>Player</th>
+                                <th>Wins</th>
+                                <th>Kills</th>
+                                <th>Most Kills/Game</th>
+                                <th>K/D</th>
+                                <th>Win %</th>
+                                <th>Matches</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for score in scores_four %}
+                            <tr>
+                                {% if 'jamzzee' == score.player %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a> <img src="{{url_for('.static', filename='award-ltwins100_24x28.png')}}" title="Award for 100 Lifetime Wins"></td>
+                                {% elif 'irishleadhead' == score.player %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a> <img src="{{url_for('.static', filename='award-solowins10_24x25.png')}}" title="Award for 10 Season 3 Solo Wins"> <img src="{{url_for('.static', filename='award-ltwins100_24x28.png')}}" title="Award for 100 Lifetime Wins"></td>
+                                {% else %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a></td>
+                                {% endif %}
+                                <td>{{ score.s4_duo_wins }}</td>
+                                <td>{{ score.s4_duo_kills }}</td>
+                                <td>{{ score.s4_duo_killsmax }}</td>
+                                <td>{{ score.s4_duo_kd }}</td>
+                                <td>{{ score.s4_duo_wr }}</td>
+                                <td>{{ score.s4_duo_matches }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="tab-pane" id="s4squad" role="tabpanel" aria-labelledby="s4-squad-tab">
+                    <table class="table" id="t11">
+                        <thead>
+                            <tr>
+                                <th>Player</th>
+                                <th>Wins</th>
+                                <th>Kills</th>
+                                <th>Most Kills/Game</th>
+                                <th>K/D</th>
+                                <th>Win %</th>
+                                <th>Matches</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for score in scores_four %}
+                            <tr>
+                                {% if 'jamzzee' == score.player %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a> <img src="{{url_for('.static', filename='award-ltwins100_24x28.png')}}" title="Award for 100 Lifetime Wins"></td>
+                                {% elif 'irishleadhead' == score.player %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a> <img src="{{url_for('.static', filename='award-solowins10_24x25.png')}}" title="Award for 10 Season 3 Solo Wins"> <img src="{{url_for('.static', filename='award-ltwins100_24x28.png')}}" title="Award for 100 Lifetime Wins"></td>
+                                {% else %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a></td>
+                                {% endif %}
+                                <td>{{ score.s4_squad_wins }}</td>
+                                <td>{{ score.s4_squad_kills }}</td>
+                                <td>{{ score.s4_squad_killsmax }}</td>
+                                <td>{{ score.s4_squad_kd }}</td>
+                                <td>{{ score.s4_squad_wr }}</td>
+                                <td>{{ score.s4_squad_matches }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="tab-pane" id="s4total" role="tabpanel" aria-labelledby="s4-total-tab">
+                    <table class="table" id="t12">
+                        <thead>
+                            <tr>
+                                <th>Player</th>
+                                <th>Wins</th>
+                                <th>Kills</th>
+                                <th>Matches</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for score in scores_four %}
+                            <tr>
+                                {% if 'jamzzee' == score.player %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a> <img src="{{url_for('.static', filename='award-ltwins100_24x28.png')}}" title="Award for 100 Lifetime Wins"></td>
+                                {% elif 'irishleadhead' == score.player %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a> <img src="{{url_for('.static', filename='award-solowins10_24x25.png')}}" title="Award for 10 Season 3 Solo Wins"> <img src="{{url_for('.static', filename='award-ltwins100_24x28.png')}}" title="Award for 100 Lifetime Wins"></td>
+                                {% else %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a></td>
+                                {% endif %}
+                                <td>{{ score.s4_total_wins }}</td>
+                                <td>{{ score.s4_total_kills }}</td>
+                                <td>{{ score.s4_total_matches }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="tab-pane" id="pills-season3" role="tabpanel" aria-labelledby="pills-season3-tab">
+            <ul class ="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item active" id="solo-tab" data-toggle="tab" href="#solo" role="tab" aria-controls="home" aria-selected="true">
+                    <a class="nav-link active" href="#">Solo</a>
+                </li>
+                <li class="nav-item" id="duo-tab" data-toggle="tab" href="#duo" role="tab" aria-controls="home" aria-selected="true">
+                    <a class="nav-link" href="#">Duo</a>
+                </li>
+                <li class="nav-item" id="squad-tab" data-toggle="tab" href="#squad" role="tab" aria-controls="home" aria-selected="true">
+                    <a class="nav-link" href="#">Squad</a>
+                </li>
+                <li class="nav-item" id="s3-total-tab" data-toggle="tab" href="#s3total" role="tab" aria-controls="home" aria-selected="true">
+                        <a class="nav-link" href="#">Total</a>
+                    </li>
+                <li class="nav-item" id="s3-awards-tab" data-toggle="tab" href="#s3awards" role="tab" aria-controls="home" aria-selected="true">
+                    <a class="nav-link" href="#">End-of-season Awards</a>
+                </li>         
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="solo" role="tabpanel" aria-labelledby="solo-tab">
+                    <table class="table" id="t01">
+                        <thead>
+                            <tr>
+                                <th>Player</th>
+                                <th>Wins</th>
+                                <th>Kills</th>
+                                <th>K/D</th>
+                                <th>Win %</th>
+                                <th>Matches</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for score in scores %}
+                            <tr>
+                                {% if score.life_wins >= 100 %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a> <img src="{{url_for('.static', filename='award-ltwins100_24x28.png')}}" title="Award for 100 Lifetime Wins"></td>
+                                {% elif score.solo_wins >= 10 %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a> <img src="{{url_for('.static', filename='award-solowins10_24x25.png')}}" title="Award for 10 Season 3 Solo Wins"> <img src="{{url_for('.static', filename='award-ltwins100_24x28.png')}}" title="Award for 100 Lifetime Wins"></td>
+                                {% else %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a></td>
+                                {% endif %}
+                                <td>{{ score.solo_wins }}</td>
+                                <td>{{ score.solo_kills }}</td>
+                                <td>{{ score.solo_kd }}</td>
+                                <td>{{ score.solo_wr }}</td>
+                                <td>{{ score.solo_matches }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="tab-pane" id="duo" role="tabpanel" aria-labelledby="duo-tab">
+                    <table class="table" id="t02">
+                        <thead>
+                            <tr>
+                                <th>Player</th>                                    
+                                <th>Wins</th>
+                                <th>Kills</th>
+                                <th>K/D</th>
+                                <th>Win %</th>
+                                <th>Matches</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for score in scores %}
+                            <tr>                                    
+                                {% if score.life_wins >= 100 %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a> <img src="{{url_for('.static', filename='award-ltwins100_24x28.png')}}" title="Award for 100 Lifetime Wins"></td>
+                                {% elif score.solo_wins >= 10 %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a> <img src="{{url_for('.static', filename='award-solowins10_24x25.png')}}" title="Award for 10 Season 3 Solo Wins"> <img src="{{url_for('.static', filename='award-ltwins100_24x28.png')}}" title="Award for 100 Lifetime Wins"></td>
+                                {% else %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a></td>
+                                {% endif %}
+                                <td>{{ score.duo_wins }}</td>
+                                <td>{{ score.duo_kills }}</td>
+                                <td>{{ score.duo_kd }}</td>
+                                <td>{{ score.duo_wr }}</td>
+                                <td>{{ score.duo_matches }}</td>                          
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="tab-pane" id="squad" role="tabpanel" aria-labelledby="squad-tab">
+                    <table class="table" id="t03">
+                        <thead>                                
+                            <tr>
+                                <th>Player</th>
+                                <th>Wins</th>
+                                <th>Kills</th>
+                                <th>K/D</th>
+                                <th>Win %</th>
+                                <th>Matches</th>
+                            </tr>
+                        </thead>                            
+                        <tbody>
+                            {% for score in scores %}
+                            <tr>
+                                {% if score.life_wins >= 100 %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a> <img src="{{url_for('.static', filename='award-ltwins100_24x28.png')}}" title="Award for 100 Lifetime Wins"></td>
+                                {% elif score.solo_wins >= 10 %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a> <img src="{{url_for('.static', filename='award-solowins10_24x25.png')}}" title="Award for 10 Season 3 Solo Wins"> <img src="{{url_for('.static', filename='award-ltwins100_24x28.png')}}" title="Award for 100 Lifetime Wins"></td>
+                                {% else %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a></td>
+                                {% endif %}
+                                <td>{{ score.squad_wins }}</td>
+                                <td>{{ score.squad_kills }}</td>
+                                <td>{{ score.squad_kd }}</td>
+                                <td>{{ score.squad_wr }}</td>
+                                <td>{{ score.squad_matches }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="tab-pane" id="s3total" role="tabpanel" aria-labelledby="s3-total-tab">
+                    <table class="table" id="t08">
+                        <thead>                                
+                            <tr>
+                                <th>Player</th>
+                                <th>Wins</th>
+                                <th>Kills</th>
+                                <th>Matches</th>
+                            </tr>
+                        </thead>                            
+                        <tbody>
+                            {% for score in scores %}
+                            <tr>
+                                {% if score.life_wins >= 100 %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a> <img src="{{url_for('.static', filename='award-ltwins100_24x28.png')}}" title="Award for 100 Lifetime Wins"></td>
+                                {% elif score.solo_wins >= 10 %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a> <img src="{{url_for('.static', filename='award-solowins10_24x25.png')}}" title="Award for 10 Season 3 Solo Wins"> <img src="{{url_for('.static', filename='award-ltwins100_24x28.png')}}" title="Award for 100 Lifetime Wins"></td>
+                                {% else %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a></td>
+                                {% endif %}
+                                <td>{{ score.s3_total_wins }}</td>
+                                <td>{{ score.s3_total_kills }}</td>
+                                <td>{{ score.s3_total_matchesnew }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="tab-pane" id="s3awards" role="tabpanel" aria-labelledby="s3-awards-tab">
+                    <br />
+                    <h1>Solo</h1>
+                    <li>Most wins: {{ top_solo_wins.player }} - {{ top_solo_wins.solo_wins }}</li>
+                    <li>Most kills: {{ top_solo_kills.player }} - {{ top_solo_kills.solo_kills }}</li>
+                    <li>Highest K/D: {{ top_solo_kd.player }} - {{ top_solo_kd.solo_kd }}</li>
+                    <li>Highest win %: {{ top_solo_wr.player }} - {{ top_solo_wr.solo_wr }}</li>
+
+                    <br />
+                    <h1>Duo</h1>
+                    <li>Most wins: {{ top_duo_wins.player }} - {{ top_duo_wins.duo_wins }}</li>
+                    <li>Most kills: {{ top_duo_kills.player }} - {{ top_duo_kills.duo_kills }}</li>
+                    <li>Highest K/D: {{ top_duo_kd.player }} - {{ top_duo_kd.duo_kd }}</li>
+                    <li>Highest win %: {{ top_duo_wr.player }} - {{ top_duo_wr.duo_wr }}</li>
+
+                    <br />
+                    <h1>Squad</h1>
+                    <li>Most wins: {{ top_squad_wins.player }} - {{ top_squad_wins.squad_wins }}</li>
+                    <li>Most kills: {{ top_squad_kills.player }} - {{ top_squad_kills.squad_kills }}</li>
+                    <li>Highest K/D: {{ top_squad_kd.player }} - {{ top_squad_kd.squad_kd }}</li>
+                    <li>Highest win %: {{ top_squad_wr.player }} - {{ top_squad_wr.squad_wr }}</li>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="tab-pane" id="pills-lifetime" role="tabpanel" aria-labelledby="pills-lifetime-tab">
+            <ul class ="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item active " id="lt-solo-tab" data-toggle="tab" href="#ltsolo" role="tab" aria-controls="home" aria-selected="true">
+                    <a class="nav-link active" href="#">Solo</a>
+                </li>
+                <li class ="nav-item" id="lt-duo-tab" data-toggle="tab" href="#ltduo" role="tab" aria-controls="home" aria-selected="true">
+                    <a class="nav-link" href="#">Duo</a>
+                </li>
+                <li class ="nav-item" id="lt-squad-tab" data-toggle="tab" href="#ltsquad" role="tab" aria-controls="home" aria-selected="true">
+                        <a class="nav-link" href="#">Squad</a>
+                    </li>                
+                <li class="nav-item" id="lt-total-tab" data-toggle="tab" href="#lttotal" role="tab" aria-controls="home" aria-selected="true">
+                    <a class="nav-link" href="#">Total</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="ltsolo" role="tabpanel" aria-labelledby="lt-solo-tab">
+                    <table class="table" id="t04">
+                        <thead>
+                            <tr>
+                                <th>Player</th>
+                                <th>Wins</th>
+                                <th>Kills</th>
+                                <th>K/D</th>
+                                <th>Win %</th>
+                                <th>Matches</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for score in scores_lifetime %}
+                            <tr>
+                                {% if 'jamzzee' == score.player %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a> <img src="{{url_for('.static', filename='award-ltwins100_24x28.png')}}" title="Award for 100 Lifetime Wins"></td>
+                                {% elif 'irishleadhead' == score.player %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a> <img src="{{url_for('.static', filename='award-solowins10_24x25.png')}}" title="Award for 10 Season 3 Solo Wins"> <img src="{{url_for('.static', filename='award-ltwins100_24x28.png')}}" title="Award for 100 Lifetime Wins"></td>
+                                {% else %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a></td>
+                                {% endif %}
+                                <td>{{ score.life_solo_wins }}</td>
+                                <td>{{ score.life_solo_kills }}</td>
+                                <td>{{ score.life_solo_kd }}</td>
+                                <td>{{ score.life_solo_wr }}</td>
+                                <td>{{ score.life_solo_matches }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="tab-pane" id="ltduo" role="tabpanel" aria-labelledby="lt-duo-tab">
+                    <table class="table" id="t05">
+                        <thead>
+                            <tr>
+                                <th>Player</th>
+                                <th>Wins</th>
+                                <th>Kills</th>
+                                <th>K/D</th>
+                                <th>Win %</th>
+                                <th>Matches</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for score in scores_lifetime %}
+                            <tr>
+                                {% if 'jamzzee' == score.player %}
+                                    <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a> <img src="{{url_for('.static', filename='award-ltwins100_24x28.png')}}" title="Award for 100 Lifetime Wins"></td>
+                                {% elif 'irishleadhead' == score.player %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a> <img src="{{url_for('.static', filename='award-solowins10_24x25.png')}}" title="Award for 10 Season 3 Solo Wins"> <img src="{{url_for('.static', filename='award-ltwins100_24x28.png')}}" title="Award for 100 Lifetime Wins"></td>
+                                {% else %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a></td>
+                                {% endif %}
+                                <td>{{ score.life_duo_wins }}</td>
+                                <td>{{ score.life_duo_kills }}</td>
+                                <td>{{ score.life_duo_kd }}</td>
+                                <td>{{ score.life_duo_wr }}</td>
+                                <td>{{ score.life_duo_matches }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="tab-pane" id="ltsquad" role="tabpanel" aria-labelledby="lt-squad-tab">
+                        <table class="table" id="t06">
+                            <thead>
+                                <tr>
+                                    <th>Player</th>
+                                    <th>Wins</th>
+                                    <th>Kills</th>
+                                    <th>K/D</th>
+                                    <th>Win %</th>
+                                    <th>Matches</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for score in scores_lifetime %}
+                                <tr>
+                                    {% if 'jamzzee' == score.player %}
+                                    <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a> <img src="{{url_for('.static', filename='award-ltwins100_24x28.png')}}" title="Award for 100 Lifetime Wins"></td>
+                                    {% elif 'irishleadhead' == score.player %}
+                                    <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a> <img src="{{url_for('.static', filename='award-solowins10_24x25.png')}}" title="Award for 10 Season 3 Solo Wins"> <img src="{{url_for('.static', filename='award-ltwins100_24x28.png')}}" title="Award for 100 Lifetime Wins"></td>
+                                    {% else %}
+                                    <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a></td>
+                                    {% endif %}
+                                    <td>{{ score.life_squad_wins }}</td>
+                                    <td>{{ score.life_squad_kills }}</td>
+                                    <td>{{ score.life_squad_kd }}</td>
+                                    <td>{{ score.life_squad_wr }}</td>
+                                    <td>{{ score.life_squad_matches }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                <div class="tab-pane" id="lttotal" role="tabpanel" aria-labelledby="lt-total-tab">
+                    <table class="table" id="t07">
+                        <thead>
+                            <tr>
+                                <th>Player</th>
+                                <th>Wins</th>
+                                <th>Kills</th>
+                                <th>K/D</th>
+                                <th>Win %</th>
+                                <th>Matches</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for score in scores_lifetime %}
+                            <tr>
+                                {% if 'jamzzee' == score.player %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a> <img src="{{url_for('.static', filename='award-ltwins100_24x28.png')}}" title="Award for 100 Lifetime Wins"></td>
+                                {% elif 'irishleadhead' == score.player %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a> <img src="{{url_for('.static', filename='award-solowins10_24x25.png')}}" title="Award for 10 Season 3 Solo Wins"> <img src="{{url_for('.static', filename='award-ltwins100_24x28.png')}}" title="Award for 100 Lifetime Wins"></td>
+                                {% else %}
+                                <td><a href="https://fortnitetracker.com/profile/pc/{{ score.player }}">{{ score.player }}</a></td>
+                                {% endif %}
+                                <td>{{ score.life_wins }}</td>
+                                <td>{{ score.life_kills }}</td>
+                                <td>{{ score.life_kd }}</td>
+                                <td>{{ score.life_wr }}</td>
+                                <td>{{ score.life_matches }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <br />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Win Feed</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for win in winpages.items %}
+                <tr>
+                    <td>{{ win.log }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% if winpages.has_prev %}
+    <a href="{{ url_for('index', page=winpages.prev_num) }}">&lt;&lt; Newer wins</a>
+    {% else %}
+    &lt;&lt; Newer wins
+    {% endif %}
+    |
+    {% if winpages.has_next %}
+    <a href="{{ url_for('index', page=winpages.next_num) }}">Older wins &gt;&gt;</a>
+    {% else %}
+    Older wins &gt;&gt;
+    {% endif %}
+
+{% endblock %}

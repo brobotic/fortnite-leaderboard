@@ -1,0 +1,47 @@
+body {
+    background-color: #ccc9c9;
+}
+
+.navbar {
+    background-color: #a5a5a5;
+}
+
+.navbar-default .navbar-brand {
+    color: #676767;
+}
+
+.navbar-default .navbar-brand:hover {
+    color: #4e4d4d;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #676767;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+    color: #4e4d4d;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus {
+    background-color: #adadad;
+}
+
+.nav>li>a:hover {
+    color: #adadad;
+}
+
+tr.odd {
+    background-color: #ccc9c9 !important;
+}
+
+tr.even {
+    background-color: #ccc9c9 !important;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    background-color: #a5a5a5;
+}
+
+a {
+    color: #000000;
+}
