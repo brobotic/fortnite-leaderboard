@@ -10,7 +10,8 @@ from time import sleep
 
 players = ['jamzzee', 'brobotic', 'jambijon', 'irishleadhead', 'hustleb0nez']
 
-headers = {***REMOVED***}
+API_KEY = 'API key from FortniteTracker'
+headers = {API_KEY}
 
 def get_stats():
     for player in players:
