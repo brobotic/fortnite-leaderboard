@@ -1,5 +1,7 @@
 # Overview
 
+*DISCLAIMER*: this project was only uploaded so I could show my work to others. If you'd like to use this for your own purposes, let me know and I'll help you out.
+
 Some friends and I were heavily into Fortnite a while back, and while our stats were available on FortniteTracker, I wanted a way to view all of our stats in one place. Using FortniteTracker's API, I created a simple leaderboard website using Python. Here's an overview of the project and my processes for developing & deploying it.
 
 ## How it works
