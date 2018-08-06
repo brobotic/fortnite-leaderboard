@@ -18,8 +18,6 @@ Some friends and I were heavily into Fortnite a while back, and while our stats 
 2. The leaderboard application runs on an AWS EC2 instance inside of a Docker container. AWS Elastic Container Registry handles anything related to the container: configuration, deployment, as well as the image repository. As new code is merged into the master branch in GitLab, a Jenkins job is kicked off that re-deploys the latest container image to AWS
 3. Every 5 minutes, a cronjob on the EC2 instance runs a script (dbupdate.py) inside of the container. This script queries FortniteTracker's API for player stats, and enters them in our local SQLite database
 
-To add new seasons to the application, you have to: add a table in the database, 
-
 ## Development and testing process
 
 1. As features are implemented and/or bugs are fixed, new code is pushed to the development branch of the project's repository on my local GitLab server
