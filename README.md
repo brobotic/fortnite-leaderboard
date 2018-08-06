@@ -6,6 +6,8 @@ Some friends and I were heavily into Fortnite a while back, and while our stats 
 
 ## Features
 
+(TODO: add images of the application)
+
 * Tracks Fortnite stats(games won, kills per match, etc.) for a group of players. Stats are separated by seasons, as well as lifetime stats
 * As players win games, new wins are announced in the win feed along with the time of the game and how many kills the player had in the game
 ** In a separate and slightly extended version of this application (not posted on GitHub), I made a simple API for the application. This allows us to query the stats database however we please. The API was created for a simple Discord bot that I made. The bot would announce new wins to the channel as they happened
