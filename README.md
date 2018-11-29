@@ -12,7 +12,7 @@ Some friends and I were heavily into Fortnite a while back, and while our stats 
 
 Here is how the stats are presented:
 
-!(misc/leaderboard1_gh.png)
+![Front Page](misc/leaderboard1_gh.png)
 
 # How it works
 
