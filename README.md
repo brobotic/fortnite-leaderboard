@@ -8,7 +8,7 @@ Some friends and I were heavily into Fortnite a while back, and while our stats 
 
 * Tracks Fortnite stats(games won, kills per match, etc.) for a group of players. Stats are separated by seasons, as well as lifetime stats.
 * As players win games, new wins are announced in the win feed along with the time of the game and how many kills the player had in the game
-** In a separate and slightly extended version of this application (not posted on GitHub), I made a simple API for the application. This allows us to query the stats database however we please. The API was created for a simple Discord bot that I made. The bot would announce new wins to the channel as they happened.
+* * In a separate and slightly extended version of this application (not posted on GitHub), I made a simple API for the application. This allows us to query the stats database however we please. The API was created for a simple Discord bot that I made. The bot would announce new wins to the channel as they happened.
 
 Here is how the stats are presented:
 
@@ -33,4 +33,15 @@ Here is how the stats are presented:
 
 ## Container information
 
-The container is based off an Alpine Linux image with Python 3 ready to go. 
+The Docker container is based off an Alpine Linux image with Python 3 ready to go. Alpine Linux aims to be small in size but also resource efficient. Since the container will run in AWS, I wanted to keep the container image as small as possible.
+
+A few things happen as the container is spun up:
+
+* A new user is created, so that the application is ran as this user and not root
+* LetsEncrypt certificates are copied in to the container. It always felt like a hacky way to achieve HTTPS and I know there's better options, but hey, it worked
+* All system packages are updated
+* nginx, the web server, is installed
+* The nginx configuration is copied in to the container. This allows us serve the site over HTTPS, to reverse proxy the application port to 443, and redirect any port 80 requests to 443
+* supervisord is installed
+* All python package dependencies are installed from requirements.txt
+* Finally, the application is launched using supervisord. supervisord.conf will start the application using gunicorn. gunicorn is great because it will spawn 4 workers and all of them will respond to web requests as they come in
