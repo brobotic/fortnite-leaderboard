@@ -8,7 +8,7 @@ Some friends and I were heavily into Fortnite a while back, and while our stats 
 
 * Tracks Fortnite stats(games won, kills per match, etc.) for a group of players. Stats are separated by seasons, as well as lifetime stats.
 * As players win games, new wins are announced in the win feed along with the time of the game and how many kills the player had in the game
-    * In a separate and slightly extended version of this application (not posted on GitHub), I made a simple API for the application. This allows us to query the stats database however we please. The API was created for a simple Discord bot that I made. The bot would announce new wins to the channel as they happened.
+* In a separate and slightly extended version of this application (not posted on GitHub), I made a simple API for the application. This allows us to query the stats database however we please. The API was created for a simple Discord bot that I made. The bot would announce new wins to the channel as they happened. I chose to run it separately because I wasn't sure how to secure a service that ran an API.
 
 Here is how the stats are presented:
 
@@ -23,13 +23,15 @@ Here is how the stats are presented:
 ## Development and testing process
 
 1. As changes are made to the code, new code is pushed to the development branch of the project's git repository on my local GitLab server
-2. GitLab notifies my local Jenkins server of pushes to the development branch, and kicks off a build job on my local Docker server. This job stops the current running leaderboard container, builds a new container image with the latest code, and launches a container that is based off the new image
-3. Since the application runs on port 80 on my Docker host, I simply connect to the hostname of my Docker host in a web browser and make sure everything is working. I should have included some sort of automated testing, but I'm still very much learning and will be soon implementing that in my new Flask project
+2. GitLab notifies my local Jenkins server of pushes to the development branch, and kicks off a build job on my local Docker server.
+3. This job stops the current running leaderboard container, builds a new container image with the latest code, and launches a container that is based off the new image
+3. Since the application runs on port 80 on my Docker host, I simply connect to the hostname of my Docker host in a web browser and make sure everything is working. I should have included some sort of automated testing, but I'm still very much learning and will be soon implementing that in my new Flask project. Once things look good, I move on to deploying to "production"
 
 ## Production deployment process
 
 1. Once changes are tested locally, I merge the development branch into the master branch in GitLab
-2. GitLab notifies Jenkins of a merge into the master branch, and kicks off another job on the Docker host. This job builds the new production container image, pushes the new image to our image repository on AWS ECR, and tells our application to re-deploy itself with the latest production image. This causes the site to go down for about a minute, but since it only used by myself and a few friends, this was acceptable. More container instances running also means more money spent.
+2. GitLab notifies Jenkins of a merge into the master branch, and kicks off another job on the Docker host.
+3. This job builds the new production container image, pushes the new image to our image repository on AWS ECR, and tells our application to re-deploy itself with the latest production image. This causes the site to go down for about a minute, but since it only used by myself and a few friends, this was acceptable. More container instances running also means more money spent.
 
 ## Container information
 
@@ -45,3 +47,11 @@ A few things happen as the container is spun up:
 * supervisord is installed
 * All python package dependencies are installed from requirements.txt
 * Finally, the application is launched using supervisord. supervisord.conf will start the application using gunicorn. gunicorn is great because it will spawn 4 workers and all of them will respond to web requests as they come in
+
+## Postmortem
+
+Ultimately, I was happy with how it turned out and the progress I made in the time spent working on it. It doesn't look great, but I'm not a web designer. I had done two Flask projects with databases before this, but they were far smaller in scope and only took a day or two to complete. I had a very basic version of it up and running in about a week, and iterated on that for the next month. Then I expanded on it by adding an API, which allowed a Discord bot to query data from the application. Once I had the Discord bot announcing new wins in a channel, I felt like I had accomplished what I set out to do and more and ceased work on the project. We also stopped playing Fortnite, so that helped.
+
+Two highlights for me was: the fact that the leaderboard became part of our Fortnite experience, and the rush of the new season coming out and me having to hurry and implement the new season's stats in the application.
+
+Enter the next project: a Destiny clan stat site. This one is more ambitious in terms of data, so I look forward to sharing that once I consider it complete.
