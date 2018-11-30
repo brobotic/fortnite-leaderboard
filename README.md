@@ -52,6 +52,8 @@ A few things happen as the container is spun up:
 
 Ultimately, I was happy with how it turned out and the progress I made in the time spent working on it. It doesn't look great, but I'm not a web designer. I had done two Flask projects with databases before this, but they were far smaller in scope and only took a day or two to complete. I had a very basic version of it up and running in about a week, and iterated on that for the next month. Then I expanded on it by adding an API, which allowed a Discord bot to query data from the application. Once I had the Discord bot announcing new wins in a channel, I felt like I had accomplished what I set out to do and more and ceased work on the project. We also stopped playing Fortnite, so that helped.
 
+There's things I wanted to do better, but I'll tackle those concepts in the next project: better error handling, more efficient and decoupled application structure, and some sort of actual logging solution.
+
 Two highlights for me was: the fact that the leaderboard became part of our Fortnite experience, and the rush of the new season coming out and me having to hurry and implement the new season's stats in the application.
 
 Enter the next project: a Destiny clan stat site. This one is more ambitious in terms of data, so I look forward to sharing that once I consider it complete.
