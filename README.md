@@ -1,6 +1,6 @@
 # Overview
 
-*DISCLAIMER*: this project was only uploaded so I could show my work to others. This was also made in Seasons 3 and 4 of Fortnite, so I'm not sure if the API code will work as-is today. If you are interested in running your own version and need help, let me know and I'll do my best to assist.
+*DISCLAIMER*: this project was only uploaded so I could show my work to others. This was also made in Seasons 3 and 4 of Fortnite, so I'm not sure if the API code will work as-is today. If you are interested in running your own version and need help, let me know and I'll do my best to assist. This was also my first Python project of decent size, so the code can be horrendous in some places.
 
 Some friends and I were heavily into Fortnite a while back, and while our stats were available on FortniteTracker, I wanted a way to view all of our stats in one place. I also wanted a cool programming project that involved a variety of technologies such as containers and build systems. Using FortniteTracker's API, I created a simple leaderboard website using Python. Here's an overview of the project and my processes for developing & deploying it.
 
@@ -39,6 +39,7 @@ The Docker container is based off an Alpine Linux image with Python 3 ready to g
 
 A few things happen as the container is spun up:
 
+* The project code is copied in to /app
 * A new user is created, so that the application is ran as this user and not root
 * LetsEncrypt certificates are copied in to the container. It always felt like a hacky way to achieve HTTPS and I know there's better options, but hey, it worked
 * All system packages are updated
