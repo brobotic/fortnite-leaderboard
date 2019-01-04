@@ -47,7 +47,7 @@ A few things happen as the container is spun up:
 * The nginx configuration is copied in to the container. This allows us serve the site over HTTPS, to reverse proxy the application port to 443, and redirect any port 80 requests to 443
 * supervisord is installed
 * All python package dependencies are installed from requirements.txt
-* Finally, the application is launched using supervisord. supervisord.conf will start the application using gunicorn. gunicorn is great because it will spawn 4 workers and all of them will respond to web requests as they come in
+* Finally, the application is launched using supervisord. supervisord will start the application using gunicorn (a Python WSGI HTTP server) with 4 workers, allowing each worker to individually respond to HTTP GET requests for better performance. gunicorn is running on port 5000, but nginx will take requests to port 443 and send them over to gunicorn's port 5000, then sends the application's response back to the requesting client.
 
 ## Postmortem
 
